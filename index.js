@@ -4,8 +4,8 @@ let moduleReducerKey = 'module';
 const moduleReducers = {};
 let reducerHasBeenGet = false;
 
-export const getModuleReducerKey = (key) => {
-  moduleReducerKey = key;
+export const getModuleReducerKey = () => {
+  return moduleReducerKey;
 };
 
 export const setModuleReducerKey = (key) => {
@@ -26,7 +26,7 @@ export const registerModuleReducer = (moduleName, reducer) => {
 };
 
 export const getModuleState = curry((moduleName, state) => (
-  state[MODULE_REDUCER_KEY][moduleName]
+  state[moduleReducerKey][moduleName]
 ));
 
 const moduleSagas = [];
