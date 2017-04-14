@@ -1,0 +1,40 @@
+{
+  "name": "react-module",
+  "version": "0.0.1",
+  "description": "Utils for creating react modules",
+  "main": "react-module.js",
+  "scripts": {
+    "test": "",
+    "compile": "./node_modules/.bin/babel -o react-module.js index.js",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birdy-/react-module.git"
+  },
+  "keywords": [
+    "react",
+    "utils",
+    "module",
+    "reducer",
+    "saga"
+  ],
+  "author": "Clément Danjou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/birdy-/react-module/issues"
+  },
+  "homepage": "https://github.com/birdy-/react-module#readme",
+  "dependencies": {
+    "curry": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
+  }
+}
