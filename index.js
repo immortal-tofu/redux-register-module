@@ -34,7 +34,7 @@ let sagaHasBeenGet = false;
 
 export const getSagas = () => {
   sagaHasBeenGet = true;
-  moduleSagas
+  return moduleSagas;
 };
 
 export const registerModuleSaga = (saga) => {
