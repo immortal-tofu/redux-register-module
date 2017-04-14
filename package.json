@@ -1,6 +1,6 @@
 {
   "name": "react-module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utils for creating react modules",
   "main": "react-module.js",
   "scripts": {

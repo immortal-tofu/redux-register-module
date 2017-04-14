@@ -4,7 +4,11 @@ let moduleReducerKey = 'module';
 const moduleReducers = {};
 let reducerHasBeenGet = false;
 
-export const updateModuleReducerKey = (key) => {
+export const getModuleReducerKey = (key) => {
+  moduleReducerKey = key;
+};
+
+export const setModuleReducerKey = (key) => {
   moduleReducerKey = key;
 };
 
