@@ -1,4 +1,15 @@
 # redux-register-module
+
+## Installation
+
+```
+npm install --save redux-register-module
+```
+
+See https://www.npmjs.com/package/redux-register-module
+
+## Usage
+
 If you try to split your code in different modules who handle their own reducer, own action and own components, you need to add your reducer, your saga handler in the app.
 ```
 |- src
