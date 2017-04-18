@@ -1,4 +1,4 @@
-# react-module
+# redux-register-module
 If you try to split your code in different modules who handle their own reducer, own action and own components, you need to add your reducer, your saga handler in the app.
 ```
 |- src
@@ -27,7 +27,7 @@ This package allows you to register reducer and saga handler from your module. W
 Basic implementation for a reducer registered from your module, and injected in your store automatically
 `node_modules/mymodule/reducer.js`
 ```
-import { registerModuleReducer } from 'react-module';
+import { registerModuleReducer } from 'redux-register-module';
 
 const initialState = {
   list: [],
@@ -48,7 +48,7 @@ registerModuleReducer('myModule', reducer);
 ```
 import { combineReducers } from 'redux';
 
-import { getModuleReducerKey, getReducers } from 'react-module';
+import { getModuleReducerKey, getReducers } from 'redux-register-module';
 import 'mymodule/reducer';
 
 // getModuleReducerKey will return the name of where your store module reducers. By default, it will be 'module', you can change it via setModuleReducerKey('myKey')
@@ -59,7 +59,7 @@ const rootReducer = combineReducers({
 
 If you want to read data, you can use the curried function getModuleState as follow:
 ```
-import { getModuleState } from 'react-module';
+import { getModuleState } from 'redux-register-module';
 
 const myModuleState = getModuleState('myModule');
 
@@ -89,7 +89,7 @@ export const mySelector = createSelector(
 Basic implementation for a saga registered from your module, and injected in your middleware
 `node_modules/mymodule/saga.js`
 ```
-import { registerModuleSaga } from 'react-module';
+import { registerModuleSaga } from 'redux-register-module';
 
 const saga = function* saga() {
   yield takeLatest('GET_LIST', function*() {});

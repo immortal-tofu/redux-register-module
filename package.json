@@ -1,19 +1,20 @@
 {
-  "name": "react-module",
-  "version": "0.0.6",
-  "description": "Utils for creating react modules",
-  "main": "react-module.js",
+  "name": "redux-register-module",
+  "version": "0.0.1",
+  "description": "Utils for creating redux modules",
+  "main": "redux-register-module.js",
   "scripts": {
+    "lint": "eslint index.js",
     "test": "",
-    "compile": "./node_modules/.bin/babel -o react-module.js index.js",
+    "compile": "./node_modules/.bin/babel -o redux-register-module.js index.js",
     "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/birdy-/react-module.git"
+    "url": "git+https://github.com/birdy-/redux-register-module.git"
   },
   "keywords": [
-    "react",
+    "redux",
     "utils",
     "module",
     "reducer",
@@ -22,9 +23,9 @@
   "author": "Clément Danjou",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/birdy-/react-module/issues"
+    "url": "https://github.com/birdy-/redux-register-module/issues"
   },
-  "homepage": "https://github.com/birdy-/react-module#readme",
+  "homepage": "https://github.com/birdy-/redux-register-module#readme",
   "dependencies": {
     "curry": "^1.2.0"
   },

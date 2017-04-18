@@ -4,9 +4,7 @@ let moduleReducerKey = 'module';
 const moduleReducers = {};
 let reducerHasBeenGet = false;
 
-export const getModuleReducerKey = () => {
-  return moduleReducerKey;
-};
+export const getModuleReducerKey = () => (moduleReducerKey);
 
 export const setModuleReducerKey = (key) => {
   moduleReducerKey = key;
@@ -14,7 +12,7 @@ export const setModuleReducerKey = (key) => {
 
 export const getReducers = () => {
   reducerHasBeenGet = true;
-  return moduleReducers
+  return moduleReducers;
 };
 
 export const registerModuleReducer = (moduleName, reducer) => {
@@ -38,8 +36,8 @@ export const getSagas = () => {
 };
 
 export const registerModuleSaga = (saga) => {
-  if (reducerHasBeenGet === true) {
-    console.warn(`It seems you try to register "${moduleName}" but sagas has been already get.`);
+  if (sagaHasBeenGet === true) {
+    console.warn('It seems you try to register a saga but sagas has been already get.');
   }
   moduleSagas.push(saga);
 };
