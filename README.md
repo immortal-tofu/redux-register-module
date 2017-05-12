@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-registerModuleReducer('myModule', reducer);
+export default () => registerModuleReducer('myModule', reducer);
 ```
 
 `src/reducers.js`
@@ -60,7 +60,9 @@ registerModuleReducer('myModule', reducer);
 import { combineReducers } from 'redux';
 
 import { getModuleReducerKey, getReducers } from 'redux-register-module';
-import 'mymodule/reducer';
+import initMyModule from 'mymodule/reducer';
+
+initMyModule();
 
 // getModuleReducerKey will return the name of where your store module reducers. By default, it will be 'module', you can change it via setModuleReducerKey('myKey')
 const rootReducer = combineReducers({
