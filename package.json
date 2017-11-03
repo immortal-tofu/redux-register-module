@@ -1,6 +1,6 @@
 {
   "name": "redux-register-module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utils for creating redux modules",
   "main": "redux-register-module.js",
   "scripts": {
@@ -13,13 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/birdy-/redux-register-module.git"
   },
-  "keywords": [
-    "redux",
-    "utils",
-    "module",
-    "reducer",
-    "saga"
-  ],
+  "keywords": ["redux", "utils", "module", "reducer", "saga"],
   "author": "Clément Danjou",
   "license": "MIT",
   "bugs": {
