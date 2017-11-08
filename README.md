@@ -37,7 +37,7 @@ This package allows you to register reducer and saga handler from your module. W
 ### Reducer
 Basic implementation for a reducer registered from your module, and injected in your store automatically
 `node_modules/mymodule/reducer.js`
-```
+```javascript
 import { registerModuleReducer } from 'redux-register-module';
 
 const initialState = {
@@ -56,7 +56,7 @@ export default () => registerModuleReducer('myModule', reducer);
 
 `src/reducers.js`
 
-```
+```javascript
 import { combineReducers } from 'redux';
 
 import { getModuleReducerKey, getReducers } from 'redux-register-module';
@@ -71,7 +71,7 @@ const rootReducer = combineReducers({
 ```
 
 If you want to read data, you can use the curried function getModuleState as follow:
-```
+```javascript
 import { getModuleState } from 'redux-register-module';
 
 const myModuleState = getModuleState('myModule');
@@ -85,7 +85,7 @@ const mapStateToProps = state => ({
 
 Of course, if you prefer use reselect, do it:
 
-```
+```javascript
 const myModuleSelector = state => getModuleState('myModule', state).list;
 const otherModuleSelector = state => getModuleState('otherModule', state).list;
 
@@ -101,7 +101,7 @@ export const mySelector = createSelector(
 ### Saga
 Basic implementation for a saga registered from your module, and injected in your middleware
 `node_modules/mymodule/saga.js`
-```
+```javascript
 import { registerModuleSaga } from 'redux-register-module';
 
 const saga = function* saga() {
