@@ -17,14 +17,15 @@ export const getReducers = function getReducers() {
 };
 
 export const registerModuleReducer = function registerModuleReducer(moduleName: string, reducer: ModuleReducer) {
-  if (reducerHasBeenGet === true) {
+  if (reducerHasBeenGet) {
     console.warn(`It seems you try to register "${moduleName}" but reducers has been already get.`);
   }
   if (!moduleReducers[moduleName]) moduleReducers[moduleName] = reducer;
-  else
+  else {
     console.warn(
       `The reducer "${moduleName}" is already registered. Please check you don't register your reducer twice.`
     );
+  }
 };
 
 export function getModuleState<State, Name extends keyof State[ModuleReducerKey], ModuleReducerKey extends keyof State>(
@@ -46,7 +47,7 @@ export const getSagas = (): Saga[] => {
 };
 
 export const registerModuleSaga = (saga: Saga) => {
-  if (sagaHasBeenGet === true) {
+  if (sagaHasBeenGet) {
     console.warn('It seems you try to register a saga but sagas has been already get.');
   }
   moduleSagas.push(saga);
