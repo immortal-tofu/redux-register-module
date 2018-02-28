@@ -1,16 +1,6 @@
-import { curry } from "ramda";
-
-// const test = {
-//   popo: { coucou: { hello: "3", bonjour: 4 } },
-//   modules: { coucou: { hello: "3", bonjour: 4 } }
-// };
-
 const moduleReducers: { [key: string]: any } = {};
-let moduleReducerKey: keyof typeof moduleReducers;
-let reducerHasBeenGet: boolean;
-
-moduleReducerKey = "module";
-reducerHasBeenGet = false;
+let moduleReducerKey: keyof typeof moduleReducers = 'module';
+let reducerHasBeenGet: boolean = false;
 
 export const getModuleReducerKey = () => moduleReducerKey;
 
@@ -23,14 +13,9 @@ export function getReducers<ReducerType>(): ReducerType {
   return moduleReducers as ReducerType;
 }
 
-export function registerModuleReducer<ModuleState>(
-  moduleName: string,
-  reducer: ModuleState
-) {
+export function registerModuleReducer<ModuleState>(moduleName: string, reducer: ModuleState) {
   if (reducerHasBeenGet === true) {
-    console.warn(
-      `It seems you try to register "${moduleName}" but reducers has been already get.`
-    );
+    console.warn(`It seems you try to register "${moduleName}" but reducers has been already get.`);
   }
   if (!moduleReducers[moduleName]) moduleReducers[moduleName] = reducer;
   else
@@ -39,11 +24,7 @@ export function registerModuleReducer<ModuleState>(
     );
 }
 
-export function getModuleState<
-  State,
-  Name extends keyof State[ModuleReducerKey],
-  ModuleReducerKey extends keyof State
->(
+export function getModuleState<State, Name extends keyof State[ModuleReducerKey], ModuleReducerKey extends keyof State>(
   moduleName: Name,
   state: State,
   moduleReducer: ModuleReducerKey = moduleReducerKey as ModuleReducerKey
@@ -61,9 +42,7 @@ export const getSagas = (): any[] => {
 
 export const registerModuleSaga = (saga: any) => {
   if (sagaHasBeenGet === true) {
-    console.warn(
-      "It seems you try to register a saga but sagas has been already get."
-    );
+    console.warn('It seems you try to register a saga but sagas has been already get.');
   }
   moduleSagas.push(saga);
 };

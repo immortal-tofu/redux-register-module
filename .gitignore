@@ -1,5 +1,6 @@
 # Builded files
-redux-register-module.js
+index.js
+index.d.ts
 
 # Logs
 logs
