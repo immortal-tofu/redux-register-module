@@ -1,5 +1,8 @@
-const moduleReducers: { [key: string]: any } = {};
-let moduleReducerKey: keyof typeof moduleReducers = 'module';
+export type ModuleReducer = () => any;
+export type ModuleReducers = { [key: string]: ModuleReducer };
+
+const moduleReducers: ModuleReducers = {};
+let moduleReducerKey: string = 'module';
 let reducerHasBeenGet: boolean = false;
 
 export const getModuleReducerKey = () => moduleReducerKey;
@@ -8,12 +11,12 @@ export const setModuleReducerKey = (key: string) => {
   moduleReducerKey = key;
 };
 
-export function getReducers<ReducerType>(): ReducerType {
+export const getReducers = function getReducers() {
   reducerHasBeenGet = true;
-  return moduleReducers as ReducerType;
-}
+  return moduleReducers;
+};
 
-export function registerModuleReducer<ModuleState>(moduleName: string, reducer: ModuleState) {
+export const registerModuleReducer = function registerModuleReducer(moduleName: string, reducer: ModuleReducer) {
   if (reducerHasBeenGet === true) {
     console.warn(`It seems you try to register "${moduleName}" but reducers has been already get.`);
   }
@@ -22,25 +25,27 @@ export function registerModuleReducer<ModuleState>(moduleName: string, reducer: 
     console.warn(
       `The reducer "${moduleName}" is already registered. Please check you don't register your reducer twice.`
     );
-}
+};
 
 export function getModuleState<State, Name extends keyof State[ModuleReducerKey], ModuleReducerKey extends keyof State>(
   moduleName: Name,
-  state: State,
-  moduleReducer: ModuleReducerKey = moduleReducerKey as ModuleReducerKey
+  state: State
 ): State[ModuleReducerKey][Name] {
-  return state[moduleReducer][moduleName];
+  const mr = moduleReducerKey as ModuleReducerKey;
+  return state[mr][moduleName];
 }
 
-const moduleSagas: any[] = [];
+export type Saga = () => IterableIterator<any>;
+
+const moduleSagas: Saga[] = [];
 let sagaHasBeenGet = false;
 
-export const getSagas = (): any[] => {
+export const getSagas = (): Saga[] => {
   sagaHasBeenGet = true;
   return moduleSagas;
 };
 
-export const registerModuleSaga = (saga: any) => {
+export const registerModuleSaga = (saga: Saga) => {
   if (sagaHasBeenGet === true) {
     console.warn('It seems you try to register a saga but sagas has been already get.');
   }
