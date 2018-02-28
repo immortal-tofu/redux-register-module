@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-npm install --save redux-register-module
+yarn install redux-register-module
 ```
 
 See https://www.npmjs.com/package/redux-register-module
@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/redux-register-module
 ## Usage
 
 If you try to split your code in different modules who handle their own reducer, own action and own components, you need to add your reducer, your saga handler in the app.
+
 ```
 |- src
 |  - modules
@@ -34,9 +35,12 @@ If you try to split your code in different modules who handle their own reducer,
 This package allows you to register reducer and saga handler from your module. With this, your module stay a standalone package.
 
 ## Examples
+
 ### Reducer
+
 Basic implementation for a reducer registered from your module, and injected in your store automatically
 `node_modules/mymodule/reducer.js`
+
 ```javascript
 import { registerModuleReducer } from 'redux-register-module';
 
@@ -70,15 +74,14 @@ const rootReducer = combineReducers({
 });
 ```
 
-If you want to read data, you can use the curried function getModuleState as follow:
+If you want to read data, you can use the function getModuleState as follow:
+
 ```javascript
 import { getModuleState } from 'redux-register-module';
 
-const myModuleState = getModuleState('myModule');
-
 const mapStateToProps = state => ({
-  list: myModuleState(state).list,
-  total: myModuleState(state).total,
+  list: getModuleState('myModule', state).list,
+  total: getModuleState('myModule', state).total,
   otherModuleList: getModuleState('otherModule', state).list,
 });
 ```
@@ -99,8 +102,10 @@ export const mySelector = createSelector(
 ```
 
 ### Saga
+
 Basic implementation for a saga registered from your module, and injected in your middleware
 `node_modules/mymodule/saga.js`
+
 ```javascript
 import { registerModuleSaga } from 'redux-register-module';
 
@@ -110,3 +115,10 @@ const saga = function* saga() {
 
 registerModuleSaga(saga);
 ```
+
+## Changelog
+
+### 1.0.0
+
+* redux-register-module is not typed with TypeScript.
+* `getModuleState` is not curried anymore to preserve type, this is a breaking change.

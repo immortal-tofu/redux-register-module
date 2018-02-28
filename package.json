@@ -27,18 +27,12 @@
     "url": "https://github.com/birdy-/redux-register-module/issues"
   },
   "homepage": "https://github.com/birdy-/redux-register-module#readme",
-  "dependencies": {
-    "@types/redux-saga": "^0.10.5",
-    "curry": "^1.2.0",
-    "ramda": "^0.25.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.38",
     "@babel/core": "^7.0.0-beta.40",
     "@babel/preset-env": "7.0.0-beta.38",
     "@babel/preset-typescript": "7.0.0-beta.38",
-    "@types/ramda": "^0.25.18",
-    "@types/redux": "^3.6.0",
     "typescript": "^2.7.2"
   }
 }
