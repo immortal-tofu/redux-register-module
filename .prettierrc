@@ -1,0 +1,11 @@
+{
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": [".babelrc", ".eslintrc", ".prettierrc", "package.json"],
+      "options": { "parser": "json" }
+    }
+  ]
+}
