@@ -1,5 +1,5 @@
-export type ModuleReducer = () => any;
-export type ModuleReducers = { [key: string]: ModuleReducer };
+export type ModuleReducer<T> = (state: T, action: object) => T;
+export type ModuleReducers = { [key: string]: ModuleReducer<any> };
 
 const moduleReducers: ModuleReducers = {};
 let moduleReducerKey: string = 'module';
@@ -16,7 +16,7 @@ export const getReducers = function getReducers() {
   return moduleReducers;
 };
 
-export const registerModuleReducer = function registerModuleReducer(moduleName: string, reducer: ModuleReducer) {
+export const registerModuleReducer = function registerModuleReducer(moduleName: string, reducer: ModuleReducer<any>) {
   if (reducerHasBeenGet) {
     console.warn(`It seems you try to register "${moduleName}" but reducers has been already get.`);
   }
