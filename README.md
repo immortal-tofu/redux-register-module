@@ -118,7 +118,15 @@ registerModuleSaga(saga);
 
 ## Changelog
 
+### 1.0.5
+
+* Use native types of redux and redux-saga.
+
+### 1.0.1 to 1.0.4
+
+* Fix various bug on TypeScript.
+
 ### 1.0.0
 
-* redux-register-module is not typed with TypeScript.
+* redux-register-module is typed with TypeScript.
 * `getModuleState` is not curried anymore to preserve type, this is a breaking change.
