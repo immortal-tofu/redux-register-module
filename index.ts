@@ -38,15 +38,17 @@ export function getModuleState<State, Name extends keyof State[ModuleReducerKey]
   return state[mr][moduleName];
 }
 
-const moduleSagas: ReduxSaga.SagaIterator[] = [];
+export type Saga = () => ReduxSaga.SagaIterator;
+
+const moduleSagas: Saga[] = [];
 let sagaHasBeenGet = false;
 
-export const getSagas = (): ReduxSaga.SagaIterator[] => {
+export const getSagas = (): Saga[] => {
   sagaHasBeenGet = true;
   return moduleSagas;
 };
 
-export const registerModuleSaga = (saga: ReduxSaga.SagaIterator) => {
+export const registerModuleSaga = (saga: Saga) => {
   if (sagaHasBeenGet) {
     console.warn('It seems you try to register a saga but sagas has been already get.');
   }
