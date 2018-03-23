@@ -1,7 +1,7 @@
-import { Reducer } from 'redux';
-import { SagaIterator } from 'redux-saga';
+import * as Redux from 'redux';
+import * as ReduxSaga from 'redux-saga';
 
-export type ModuleReducers = { [key: string]: Reducer<any> };
+export type ModuleReducers = { [key: string]: Redux.Reducer<any> };
 
 const moduleReducers: ModuleReducers = {};
 let moduleReducerKey: string = 'module';
@@ -18,7 +18,7 @@ export const getReducers = function getReducers() {
   return moduleReducers;
 };
 
-export const registerModuleReducer = function registerModuleReducer(moduleName: string, reducer: Reducer<any>) {
+export const registerModuleReducer = function registerModuleReducer(moduleName: string, reducer: Redux.Reducer<any>) {
   if (reducerHasBeenGet) {
     console.warn(`It seems you try to register "${moduleName}" but reducers has been already get.`);
   }
@@ -38,15 +38,15 @@ export function getModuleState<State, Name extends keyof State[ModuleReducerKey]
   return state[mr][moduleName];
 }
 
-const moduleSagas: SagaIterator[] = [];
+const moduleSagas: ReduxSaga.SagaIterator[] = [];
 let sagaHasBeenGet = false;
 
-export const getSagas = (): SagaIterator[] => {
+export const getSagas = (): ReduxSaga.SagaIterator[] => {
   sagaHasBeenGet = true;
   return moduleSagas;
 };
 
-export const registerModuleSaga = (saga: SagaIterator) => {
+export const registerModuleSaga = (saga: ReduxSaga.SagaIterator) => {
   if (sagaHasBeenGet) {
     console.warn('It seems you try to register a saga but sagas has been already get.');
   }
