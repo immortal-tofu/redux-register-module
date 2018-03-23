@@ -1,6 +1,6 @@
 {
   "name": "redux-register-module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utils for creating redux modules",
   "main": "index.js",
   "types": "index.d.ts",
@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/birdy-/redux-register-module#readme",
   "dependencies": {
-    "@types/node": "^9.4.6"
+    "@types/node": "^9.4.6",
+    "redux": "3.x.x",
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.38",
