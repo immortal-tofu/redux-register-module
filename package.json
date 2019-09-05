@@ -1,6 +1,6 @@
 {
   "name": "redux-register-module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Utils for creating redux modules",
   "main": "index.js",
   "types": "index.d.ts",
@@ -13,7 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/birdy-/redux-register-module.git"
   },
-  "keywords": ["redux", "utils", "module", "reducer", "saga"],
+  "keywords": [
+    "redux",
+    "utils",
+    "module",
+    "reducer",
+    "saga"
+  ],
   "author": "Clément Danjou",
   "license": "MIT",
   "bugs": {
@@ -26,8 +32,8 @@
     "redux-saga": "^0.16.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0-beta.38",
-    "@babel/core": "^7.0.0-beta.40",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
     "@babel/preset-env": "7.0.0-beta.38",
     "@babel/preset-typescript": "7.0.0-beta.38",
     "tslint": "^5.9.1",
