@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/birdy-/redux-register-module.git"
+    "url": "git+https://github.com/immortal-tofu/redux-register-module.git"
   },
   "keywords": [
     "redux",
@@ -23,9 +23,9 @@
   "author": "Clément Danjou",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/birdy-/redux-register-module/issues"
+    "url": "https://github.com/immortal-tofu/redux-register-module/issues"
   },
-  "homepage": "https://github.com/birdy-/redux-register-module#readme",
+  "homepage": "https://github.com/immortal-tofu/redux-register-module#readme",
   "dependencies": {
     "@types/node": "^9.4.6",
     "redux": "3.x.x",
